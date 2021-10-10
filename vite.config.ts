@@ -4,7 +4,7 @@ import WindiCSS from "vite-plugin-windicss";
 
 export default defineConfig({
   plugins: [
-    solidPlugin(),
+    solidPlugin() as Plugin,
     WindiCSS({
       scan: {
         fileExtensions: ["html", "js", "ts", "jsx", "tsx"],
