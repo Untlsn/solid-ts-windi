@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 import solidPlugin from "vite-plugin-solid";
 import WindiCSS from "vite-plugin-windicss";
+import Icons from "unplugin-icons/vite";
 import path from 'path';
 
 export default defineConfig({
@@ -11,6 +12,7 @@ export default defineConfig({
         fileExtensions: ["html", "js", "ts", "jsx", "tsx"],
       },
     }),
+    Icons({ compiler: 'solid' }),
   ],
   build: {
     target: "esnext",
@@ -18,7 +20,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '~': path.resolve(__dirname, 'src'),
+      '~/': `${path.resolve(__dirname, 'src')}/`,
     }
   },
 });

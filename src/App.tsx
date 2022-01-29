@@ -1,9 +1,18 @@
-import type { Component } from "solid-js";
+import { Routes, useRoutes } from 'solid-app-router';
+import { lazy } from "solid-js";
+const routes = import.meta.glob('./pages/**')
 
-const App: Component = () => {
+export default function() {
+  const defineComponents = Object.entries(routes).map(([path, component]) => ({
+    path: path
+      .replace(/(\.\/pages)|(\.[tj]sx?)|(\/index)|]/g, '')
+      .replace(/\[/g, ':'),
+    component: lazy(component as any),
+  }))
+
+  const Routes = useRoutes(defineComponents);
+
   return (
-    <p class="text-4xl text-green-700 text-center py-20">Hello tailwind!</p>
+    <Routes />
   );
-};
-
-export default App;
+}

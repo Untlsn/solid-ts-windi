@@ -7,10 +7,14 @@
     "esModuleInterop": true,
     "jsx": "preserve",
     "jsxImportSource": "solid-js",
-    "types": ["vite/client"],
     "baseUrl": ".",
     "paths": {
       "~/*": ["./src/*"]
-    }
+    },
+    "types": [
+      "vite/client",
+      "unplugin-icons/types/solid",
+      "vite-plugin-pages/client-react"
+    ]
   }
 }
